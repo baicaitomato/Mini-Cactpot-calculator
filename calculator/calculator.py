@@ -130,13 +130,13 @@ class Step():
             
 def mini_helper():
     print("=========================================================================")
-    print("仙人微彩助手1.0版本")
-    print("输入数据格式为“5:3”（代表中间的第5格刮出了3）或者“7:1”（代表左下角的第7格刮出了1）")
-    print("前几次的建议为下一次刮奖的位置，最后一次则是选择哪一条线兑奖。")
-    print("输入r可以重新开始")
+    print("Mini-Cactpot-calculator 1.0")
+    print("input “5:3” (the numpad 5 is 3) or “7:1” (the numpad 7 is 1)")
+    print("the first few outputs are the suggestions and the last output is the line")
+    print("input r restart")
     print("=========================================================================")
     while True:
-        inputstr = input("请输入起始状态：")
+        inputstr = input("input the start:")
         if 'r' in inputstr:
             return 0
         try:
@@ -145,7 +145,7 @@ def mini_helper():
             assert 1 <= p1 <= 9 and 1 <= d1 <= 9
             break
         except:
-            print("输入格式有误")
+            print("wrong input")
             pass
 
     a1 = Step({p1:d1})
@@ -155,7 +155,7 @@ def mini_helper():
     print("Expectation =", round(expt1,2))
 
     while True:
-        inputstr = input("请输入第一次刮奖结果：")
+        inputstr = input("input the first:")
         if 'r' in inputstr:
             return 0
         try:
@@ -164,7 +164,7 @@ def mini_helper():
             assert 1 <= p2 <= 9 and 1 <= d2 <= 9
             break
         except:
-            print("输入格式有误")
+            print("wrong input")
             pass
     a2 = Step({p1:d1,p2:d2})
     a2.show()
@@ -173,7 +173,7 @@ def mini_helper():
     print("Expectation =", round(expt2,2))
 
     while True:
-        inputstr = input("请输入第二次刮奖结果：")
+        inputstr = input("input the second:")
         if 'r' in inputstr:
             return 0
         try:
@@ -182,7 +182,7 @@ def mini_helper():
             assert 1 <= p3 <= 9 and 1 <= d3 <= 9
             break
         except:
-            print("输入格式有误")
+            print("wrong input")
             pass
     a3 = Step({p1:d1,p2:d2,p3:d3})
     a3.show()
@@ -191,7 +191,7 @@ def mini_helper():
     print("Expectation =", round(expt3,2))
 
     while True:
-        inputstr = input("请输入第三次刮奖结果：")
+        inputstr = input("input the third:")
         if 'r' in inputstr:
             return 0
         try:
@@ -200,14 +200,14 @@ def mini_helper():
             assert 1 <= p4 <= 9 and 1 <= d4 <= 9
             break
         except:
-            print("输入格式有误")
+            print("wrong input")
             pass
     a4 = Step({p1:d1,p2:d2,p3:d3,p4:d4})
     a4.show()
     bestline,expt4 = a4.expt()
     print("Best Line =", allowed_line[bestline])
     print("Expectation =", round(expt4,2))
-    input("结束。按回车键重新开始。")
+    input("u can press Enter to restart")
 
 while True:
     mini_helper()
